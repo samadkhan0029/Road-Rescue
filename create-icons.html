@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create PWA Icons</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .icon { display: inline-block; margin: 10px; text-align: center; }
+        .icon canvas { border: 1px solid #ddd; }
+        .icon label { display: block; margin-top: 5px; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>RoadRescue PWA Icons Generator</h1>
+    <div id="icons"></div>
+    
+    <script>
+        function createIcon(size, filename) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#3b82f6');
+            gradient.addColorStop(1, '#1e40af');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Add rounded corners
+            ctx.globalCompositeOperation = 'destination-in';
+            ctx.beginPath();
+            ctx.roundRect(0, 0, size, size, size * 0.2);
+            ctx.fill();
+            
+            // Add car icon
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${size * 0.4}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('🚗', size/2, size/2);
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.textContent = `Download ${filename}`;
+            link.style.display = 'block';
+            link.style.margin = '5px 0';
+            
+            const container = document.createElement('div');
+            container.className = 'icon';
+            container.appendChild(canvas);
+            container.appendChild(document.createElement('br'));
+            container.appendChild(link);
+            container.appendChild(document.createElement('label')).textContent = filename;
+            
+            document.getElementById('icons').appendChild(container);
+        }
+        
+        // Create all required sizes
+        const sizes = [
+            [72, 'icon-72x72.png'],
+            [96, 'icon-96x96.png'],
+            [128, 'icon-128x128.png'],
+            [144, 'icon-144x144.png'],
+            [152, 'icon-152x152.png'],
+            [192, 'icon-192x192.png'],
+            [384, 'icon-384x384.png'],
+            [512, 'icon-512x512.png']
+        ];
+        
+        sizes.forEach(([size, filename]) => createIcon(size, filename));
+    </script>
+</body>
+</html>

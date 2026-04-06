@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Emergency Page</title>
+</head>
+<body>
+    <h1>Emergency Page Debug</h1>
+    <div id="app"></div>
+    
+    <script>
+        // Check for console errors
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript Error:', e.error);
+            document.getElementById('app').innerHTML += '<p style="color: red;">Error: ' + e.error.message + '</p>';
+        });
+        
+        // Check for unhandled promise rejections
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Unhandled Promise Rejection:', e.reason);
+            document.getElementById('app').innerHTML += '<p style="color: red;">Promise Rejection: ' + e.reason + '</p>';
+        });
+        
+        console.log('Debug page loaded - check browser console for errors');
+    </script>
+</body>
+</html>

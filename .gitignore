@@ -1,0 +1,99 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules/
+dist
+dist-ssr
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+
+# OS generated files
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional eslint cache
+.eslintcache
+
+# Temporary folders
+tmp/
+temp/
+
+# PWA specific
+public/icons/*.png
+public/screenshots/*.png
+create-icons.html
+generate-icons.html
+
+# Test files
+*-test.html
+*-debug.html
+*-diagnostic.html
+*-test.js
+comprehensive-debug.js
+alternative-fetch-test.js
+test-*.js
+test-*.html
+
+# Server specific
+server/node_modules/
+server/.env
+server/logs/
+server/uploads/
+
+# Python (road-rescuepd)
+road-rescuepd/scrapers/venv/
+road-rescuepd/scrapers/__pycache__/
+road-rescuepd/scrapers/*.pyc
+road-rescuepd/scrapers/.env
+road-rescuepd/scrapers/logs/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORS Test</title>
+</head>
+<body>
+    <h1>CORS Test</h1>
+    <button onclick="testCORS()">Test CORS Request</button>
+    <div id="results"></div>
+    
+    <script>
+        async function testCORS() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<p>Testing CORS request...</p>';
+            
+            try {
+                const response = await fetch('http://localhost:5001/send-otp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ phone: '+919876543210' })
+                });
+                
+                const data = await response.json();
+                
+                results.innerHTML = `
+                    <p><strong>✅ CORS Request Successful!</strong></p>
+                    <p>Status: ${response.status}</p>
+                    <p>Data: ${JSON.stringify(data)}</p>
+                `;
+                
+            } catch (error) {
+                results.innerHTML = `
+                    <p><strong>❌ CORS Request Failed!</strong></p>
+                    <p>Error: ${error.message}</p>
+                    <p>Type: ${error.type}</p>
+                    <p>Constructor: ${error.constructor.name}</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

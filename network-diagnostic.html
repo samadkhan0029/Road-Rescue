@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Diagnostic Tool</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+        pre { background-color: #f8f9fa; padding: 10px; border-radius: 3px; overflow-x: auto; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Network Diagnostic Tool</h1>
+    
+    <div class="test-section info">
+        <h2>Browser Information</h2>
+        <div id="browser-info"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Network Tests</h2>
+        <button onclick="runAllTests()">Run All Tests</button>
+        <button onclick="testBasicFetch()">Test Basic Fetch</button>
+        <button onclick="testOTP()">Test OTP</button>
+        <button onclick="testGeoLocation()">Test Geolocation</button>
+        <button onclick="testRequest()">Test Request</button>
+        <button onclick="testXMLHttpRequest()">Test XMLHttpRequest</button>
+    </div>
+    
+    <div id="results"></div>
+    
+    <script>
+        const results = document.getElementById('results');
+        
+        function addResult(title, success, data) {
+            const div = document.createElement('div');
+            div.className = `test-section ${success ? 'success' : 'error'}`;
+            div.innerHTML = `
+                <h3>${title} - ${success ? '✅ Success' : '❌ Failed'}</h3>
+                <pre>${JSON.stringify(data, null, 2)}</pre>
+            `;
+            results.appendChild(div);
+        }
+        
+        function showBrowserInfo() {
+            const info = {
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                language: navigator.language,
+                onLine: navigator.onLine,
+                currentUrl: window.location.href,
+                protocol: window.location.protocol,
+                host: window.location.host,
+                cookieEnabled: navigator.cookieEnabled,
+                doNotTrack: navigator.doNotTrack
+            };
+            
+            document.getElementById('browser-info').innerHTML = `<pre>${JSON.stringify(info, null, 2)}</pre>`;
+        }
+        
+        async function testBasicFetch() {
+            try {
+                const response = await fetch('http://localhost:5001/api/health');
+                const data = await response.json();
+                addResult('Basic Fetch', true, { status: response.status, data });
+            } catch (error) {
+                addResult('Basic Fetch', false, {
+                    message: error.message,
+                    name: error.name,
+                    constructor: error.constructor.name,
+                    stack: error.stack,
+                    type: error.type,
+                    code: error.code,
+                    errno: error.errno,
+                    syscall: error.syscall,
+                    path: error.path,
+                    address: error.address,
+                    port: error.port,
+                    stringified: JSON.stringify(error),
+                    keys: Object.keys(error),
+                    entries: Object.entries(error)
+                });
+            }
+        }
+        
+        async function testOTP() {
+            try {
+                const response = await fetch('http://localhost:5001/send-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phone: '+919876543210' })
+                });
+                const data = await response.json();
+                addResult('OTP Endpoint', true, { status: response.status, data });
+            } catch (error) {
+                addResult('OTP Endpoint', false, {
+                    message: error.message,
+                    name: error.name,
+                    constructor: error.constructor.name,
+                    stack: error.stack,
+                    type: error.type,
+                    code: error.code,
+                    errno: error.errno,
+                    syscall: error.syscall,
+                    path: error.path,
+                    address: error.address,
+                    port: error.port,
+                    stringified: JSON.stringify(error),
+                    keys: Object.keys(error),
+                    entries: Object.entries(error)
+                });
+            }
+        }
+        
+        async function testGeoLocation() {
+            try {
+                const response = await fetch('http://localhost:5001/api/geolocation/reverse', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ lat: 19.0760, lng: 72.8777 })
+                });
+                const data = await response.json();
+                addResult('Geolocation Endpoint', true, { status: response.status, data });
+            } catch (error) {
+                addResult('Geolocation Endpoint', false, {
+                    message: error.message,
+                    name: error.name,
+                    constructor: error.constructor.name,
+                    stack: error.stack,
+                    type: error.type,
+                    code: error.code,
+                    errno: error.errno,
+                    syscall: error.syscall,
+                    path: error.path,
+                    address: error.address,
+                    port: error.port,
+                    stringified: JSON.stringify(error),
+                    keys: Object.keys(error),
+                    entries: Object.entries(error)
+                });
+            }
+        }
+        
+        async function testRequest() {
+            try {
+                const response = await fetch('http://localhost:5001/api/requests', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        customerId: 'test123',
+                        customerName: 'Test User',
+                        customerPhone: '+1234567890',
+                        serviceType: 'Towing',
+                        location: { type: 'Point', coordinates: [72.8777, 19.0760] },
+                        address: 'Mumbai, India'
+                    })
+                });
+                const data = await response.json();
+                addResult('Request Endpoint', true, { status: response.status, data });
+            } catch (error) {
+                addResult('Request Endpoint', false, {
+                    message: error.message,
+                    name: error.name,
+                    constructor: error.constructor.name,
+                    stack: error.stack,
+                    type: error.type,
+                    code: error.code,
+                    errno: error.errno,
+                    syscall: error.syscall,
+                    path: error.path,
+                    address: error.address,
+                    port: error.port,
+                    stringified: JSON.stringify(error),
+                    keys: Object.keys(error),
+                    entries: Object.entries(error)
+                });
+            }
+        }
+        
+        function testXMLHttpRequest() {
+            return new Promise((resolve) => {
+                try {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'http://localhost:5001/api/health');
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            const data = JSON.parse(xhr.responseText);
+                            addResult('XMLHttpRequest', true, { status: xhr.status, data });
+                        } else {
+                            addResult('XMLHttpRequest', false, { status: xhr.status, responseText: xhr.responseText });
+                        }
+                        resolve();
+                    };
+                    
+                    xhr.onerror = function() {
+                        addResult('XMLHttpRequest', false, { error: 'Network error' });
+                        resolve();
+                    };
+                    
+                    xhr.send();
+                } catch (error) {
+                    addResult('XMLHttpRequest', false, {
+                        message: error.message,
+                        name: error.name,
+                        constructor: error.constructor.name,
+                        stack: error.stack,
+                        type: error.type,
+                        code: error.code,
+                        errno: error.errno,
+                        syscall: error.syscall,
+                        path: error.path,
+                        address: error.address,
+                        port: error.port,
+                        stringified: JSON.stringify(error),
+                        keys: Object.keys(error),
+                        entries: Object.entries(error)
+                    });
+                    resolve();
+                }
+            });
+        }
+        
+        async function runAllTests() {
+            results.innerHTML = '';
+            await testBasicFetch();
+            await testOTP();
+            await testGeoLocation();
+            await testRequest();
+            await testXMLHttpRequest();
+        }
+        
+        // Initialize
+        showBrowserInfo();
+    </script>
+</body>
+</html>

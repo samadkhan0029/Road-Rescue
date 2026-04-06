@@ -1004,6 +1004,9 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Export app for serverless deployment
+module.exports = app;
+
 // ==================== Vehicle API Routes ====================
 
 // Add a vehicle for the current user

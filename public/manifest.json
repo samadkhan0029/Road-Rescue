@@ -5,7 +5,7 @@
   "description": "Emergency roadside assistance service with real-time tracking and secure payments",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#0f172a",
   "theme_color": "#3b82f6",
   "orientation": "portrait-primary",
   "scope": "/",
@@ -13,44 +13,83 @@
   "categories": ["utilities", "transportation", "lifestyle"],
   "icons": [
     {
-      "src": "/icons/icon-144x144.svg",
-      "sizes": "144x144",
-      "type": "image/svg+xml",
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-192x192.svg",
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-512x512.svg",
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/vite.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
+  "splash_pages": null,
   "screenshots": [
     {
-      "src": "/screenshots/desktop-1.svg",
+      "src": "/screenshots/desktop-1.png",
       "sizes": "1280x720",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "form_factor": "wide",
       "label": "Emergency request form on desktop"
     },
     {
-      "src": "/screenshots/mobile-1.svg",
+      "src": "/screenshots/mobile-1.png",
       "sizes": "375x667",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "form_factor": "narrow",
       "label": "Emergency tracking on mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Emergency Help",
+      "short_name": "Emergency",
+      "description": "Get immediate roadside assistance",
+      "url": "/emergency",
+      "icons": [
+        {
+          "src": "/icons/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
     }
   ],
   "related_applications": [],

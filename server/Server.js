@@ -17,7 +17,7 @@ const server = http.createServer(app);
 // Initialize Socket.io
 const io = socketIo(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173", "http://127.0.0.1:3000"],
+    origin: true, // Allow all origins for production
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true
   }
@@ -25,7 +25,7 @@ const io = socketIo(server, {
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173", "http://127.0.0.1:3000"],
+  origin: true, // Allow all origins for production
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']

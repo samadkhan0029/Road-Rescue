@@ -62,7 +62,11 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch(apiUrl('/api/auth/login'), {
+      const apiEndpoint = apiUrl('/api/auth/login');
+      console.log('Attempting login to:', apiEndpoint);
+      console.log('Form data:', { email: formData.email, password: '***' });
+      
+      const response = await fetch(apiEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -70,7 +74,15 @@ const Login = () => {
         body: JSON.stringify(formData)
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      console.log('Response data:', data);
 
       if (data.success) {
         // Store token
@@ -101,9 +113,22 @@ const Login = () => {
         setError(data.error || 'Invalid email or password');
       }
     } catch (error) {
-      console.error('Login error:', error);
+      console.error('Login error details:', {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
+      });
+      
       setLoading(false);
-      setError('Server error. Please try again.');
+      
+      // More specific error messages
+      if (error.message.includes('Failed to fetch')) {
+        setError('Network error. Please check your internet connection.');
+      } else if (error.message.includes('HTTP error')) {
+        setError(`Server error (${error.message}). Please try again.`);
+      } else {
+        setError('Server error. Please try again.');
+      }
     }
   };
 

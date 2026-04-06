@@ -1232,12 +1232,14 @@ app.post('/send-otp', async (req, res) => {
   }
 });
 
-// Old line:
-// app.listen(5000, () => console.log('Backend Server running on port 5000'));
+// Export app for serverless deployment
+module.exports = app;
 
-// Start server
-const PORT = process.env.PORT || 5001;
-server.listen(PORT, () => {
-  console.log(`Backend Server running on port ${PORT}`);
-  console.log(`Socket.io server ready for connections`);
-});
+// Only start server if not in serverless environment
+if (!process.env.VERCEL && !process.env.AWS_LAMBDA_FUNCTION_NAME) {
+  const PORT = process.env.PORT || 5001;
+  server.listen(PORT, () => {
+    console.log(`Backend Server running on port ${PORT}`);
+    console.log(`Socket.io server ready for connections`);
+  });
+}

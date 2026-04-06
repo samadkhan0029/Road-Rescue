@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider List Test</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1e293b;
+            color: white;
+        }
+        .provider-card {
+            background: #334155;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+        }
+        .provider-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .provider-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .call-button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .call-button:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const ProviderList = () => {
+            const [providers, setProviders] = useState([]);
+            const [loading, setLoading] = useState(true);
+
+            useEffect(() => {
+                fetch('/road-rescuepd/mumbai_providers.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        setProviders(data);
+                        setLoading(false);
+                    })
+                    .catch(error => {
+                        console.error('Error loading providers:', error);
+                        setLoading(false);
+                    });
+            }, []);
+
+            if (loading) {
+                return <div>Loading providers...</div>;
+            }
+
+            return (
+                <div>
+                    <h1>Available Providers</h1>
+                    <p>Found {providers.length} providers</p>
+                    {providers.slice(0, 5).map((provider, index) => (
+                        <div key={index} className="provider-card">
+                            <div className="provider-name">{provider.name}</div>
+                            <div className="provider-info">
+                                <div>
+                                    <div>📍 {provider.city}</div>
+                                    <div>⭐ {provider.rating}</div>
+                                    <div>🔧 {provider.services.join(', ')}</div>
+                                </div>
+                                <a href={`tel:${provider.phone}`} className="call-button">
+                                    📞 Call
+                                </a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            );
+        };
+
+        ReactDOM.render(<ProviderList />, document.getElementById('root'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+import User from '../models/User.js';
+
+export const searchProviders = async (req, res, next) => {
+  try {
+    const queryText = (req.query.query || '').trim();
+    const city = (req.query.city || '').trim();
+    const state = (req.query.state || '').trim();
+    const limit = Math.min(Number(req.query.limit) || 30, 100);
+
+    const filter = { role: 'provider' };
+    if (city) {
+      filter['providerInfo.city'] = new RegExp(`^${city}$`, 'i');
+    }
+    if (state) {
+      filter['providerInfo.state'] = new RegExp(`^${state}$`, 'i');
+    }
+    if (queryText) {
+      filter.$or = [
+        { name: new RegExp(queryText, 'i') },
+        { 'providerInfo.businessName': new RegExp(queryText, 'i') },
+        { 'providerInfo.address': new RegExp(queryText, 'i') },
+        { 'providerInfo.city': new RegExp(queryText, 'i') },
+        { 'providerInfo.state': new RegExp(queryText, 'i') },
+        { 'providerInfo.services': { $elemMatch: { $regex: queryText, $options: 'i' } } },
+      ];
+    }
+
+    const providers = await User.find(filter)
+      .select('name phone providerInfo')
+      .sort({ 'providerInfo.rating': -1, createdAt: -1 })
+      .limit(limit);
+
+    const mapped = providers.map((provider) => {
+      const info = provider.providerInfo || {};
+      const cityName = info.city || '';
+      const stateName = info.state || '';
+      const address = info.address || [cityName, stateName].filter(Boolean).join(', ');
+      return {
+        id: String(provider._id),
+        name: info.businessName || provider.name,
+        phone: provider.phone || '',
+        services: Array.isArray(info.services) ? info.services : [],
+        rating: info.rating ?? 0,
+        address: address || 'Address not provided',
+        city: cityName || 'Unknown',
+        state: stateName || 'Unknown',
+        providerType: info.providerType || 'provider',
+        type: info.providerType === 'garage' ? 'garage' : 'provider',
+        distance: info.providerType === 'garage' ? 'Garage' : 'Partner',
+      };
+    });
+
+    res.status(200).json({ success: true, providers: mapped });
+  } catch (error) {
+    next(error);
+  }
+};

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontend-Backend Connection Test</title>
+</head>
+<body>
+    <h1>Testing Frontend-Backend Connection</h1>
+    <button onclick="testHealth()">Test Health</button>
+    <button onclick="testGeo()">Test Geolocation</button>
+    <button onclick="testOTP()">Test OTP</button>
+    <button onclick="testAuth()">Test Auth</button>
+    
+    <div id="results"></div>
+    
+    <script>
+        const results = document.getElementById('results');
+        
+        function log(message) {
+            results.innerHTML += '<p>' + message + '</p>';
+        }
+        
+        async function testHealth() {
+            log('Testing health endpoint...');
+            try {
+                const response = await fetch('http://localhost:5001/api/health');
+                const data = await response.json();
+                log('Health: ' + JSON.stringify(data));
+            } catch (error) {
+                log('Health Error: ' + error.message);
+            }
+        }
+        
+        async function testGeo() {
+            log('Testing geolocation endpoint...');
+            try {
+                const response = await fetch('http://localhost:5001/api/geolocation/reverse', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ lat: 19.0760, lng: 72.8777 })
+                });
+                const data = await response.json();
+                log('Geo: ' + JSON.stringify(data));
+            } catch (error) {
+                log('Geo Error: ' + error.message);
+            }
+        }
+        
+        async function testOTP() {
+            log('Testing OTP endpoint...');
+            try {
+                const response = await fetch('http://localhost:5001/send-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phone: '+919876543210' })
+                });
+                const data = await response.json();
+                log('OTP: ' + JSON.stringify(data));
+            } catch (error) {
+                log('OTP Error: ' + error.message);
+            }
+        }
+        
+        async function testAuth() {
+            log('Testing auth endpoint...');
+            try {
+                const response = await fetch('http://localhost:5001/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: 'Test User',
+                        email: 'test@example.com',
+                        phone: '+919876543210',
+                        password: 'password123',
+                        role: 'user'
+                    })
+                });
+                const data = await response.json();
+                log('Auth: ' + JSON.stringify(data));
+            } catch (error) {
+                log('Auth Error: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

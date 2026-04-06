@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 667" width="375" height="667">
+  <rect width="375" height="667" fill="#f8fafc"/>
+  <rect x="0" y="0" width="375" height="60" fill="#3b82f6"/>
+  <text x="187" y="40" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">RoadRescue</text>
+  
+  <rect x="20" y="80" width="335" height="300" rx="15" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="187" y="110" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1e293b">Emergency Tracking</text>
+  
+  <circle cx="187" cy="200" r="40" fill="#10b981"/>
+  <text x="187" y="210" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="white">🚗</text>
+  
+  <text x="187" y="260" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Provider on the way</text>
+  <text x="187" y="280" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#94a3b8">ETA: 15 minutes</text>
+  
+  <rect x="20" y="400" width="335" height="200" rx="15" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="187" y="430" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e293b">Provider Details</text>
+  
+  <text x="30" y="460" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b">John Doe</text>
+  <text x="30" y="480" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b">⭐ 4.8 (127 reviews)</text>
+  <text x="30" y="500" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b">📞 +1-234-567-890</text>
+  
+  <rect x="30" y="520" width="315" height="50" rx="10" fill="#3b82f6"/>
+  <text x="187" y="550" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Contact Provider</text>
+</svg>

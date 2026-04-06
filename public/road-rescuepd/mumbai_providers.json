@@ -1,0 +1,478 @@
+[
+  {
+    "name": "Chembur Highway Rescue",
+    "phone": "+91-9853478891",
+    "address": "Station Road, Chembur",
+    "city": "Chembur",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 3.6,
+    "coordinates": {
+      "lat": 19.056617,
+      "lng": 72.8875185
+    }
+  },
+  {
+    "name": "Chembur Highway Rescue",
+    "phone": "+91-9856701131",
+    "address": "Station Road, Chembur",
+    "city": "Chembur",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.6,
+    "coordinates": {
+      "lat": 19.056617,
+      "lng": 72.8875185
+    }
+  },
+  {
+    "name": "Chembur Emergency Towing",
+    "phone": "+91-9040242208",
+    "address": "Eastern Express Highway, Chembur",
+    "city": "Chembur",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 3.8,
+    "coordinates": {
+      "lat": 19.0614787,
+      "lng": 72.8935679
+    }
+  },
+  {
+    "name": "Chembur Quick Tow",
+    "phone": "+91-8681866272",
+    "address": "Sion Trombay Road, Chembur",
+    "city": "Chembur",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.6,
+    "coordinates": {
+      "lat": 19.0536732,
+      "lng": 72.8858754
+    }
+  },
+  {
+    "name": "Chembur Garage & Service",
+    "phone": "+91-8167017222",
+    "address": "Station Road, Chembur",
+    "city": "Chembur",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "lat": 19.056617,
+      "lng": 72.8875185
+    }
+  },
+  {
+    "name": "Chembur Garage & Service",
+    "phone": "+91-8115770306",
+    "address": "Eastern Express Highway, Chembur",
+    "city": "Chembur",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.4,
+    "coordinates": {
+      "lat": 19.0614787,
+      "lng": 72.8935679
+    }
+  },
+  {
+    "name": "Chembur Garage & Service",
+    "phone": "+91-9098285038",
+    "address": "Sion Trombay Road, Chembur",
+    "city": "Chembur",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.1,
+    "coordinates": {
+      "lat": 19.0536732,
+      "lng": 72.8858754
+    }
+  },
+  {
+    "name": "Chembur Garage & Service",
+    "phone": "+91-8641802172",
+    "address": "Sion Trombay Road, Chembur",
+    "city": "Chembur",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "lat": 19.0536732,
+      "lng": 72.8858754
+    }
+  },
+  {
+    "name": "Chembur Automotive Solutions",
+    "phone": "+91-9802759150",
+    "address": "Eastern Express Highway, Chembur",
+    "city": "Chembur",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.4,
+    "coordinates": {
+      "lat": 19.0614787,
+      "lng": 72.8935679
+    }
+  },
+  {
+    "name": "Kurla Roadside Assist",
+    "phone": "+91-8834844300",
+    "address": "Kurla Station Road, Kurla",
+    "city": "Kurla",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "lat": 19.0728,
+      "lng": 72.8826
+    }
+  },
+  {
+    "name": "Mumbai Highway Helpers Kurla",
+    "phone": "+91-9910775379",
+    "address": "Kurla West, Mumbai",
+    "city": "Kurla",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.3,
+    "coordinates": {
+      "lat": 19.0686026,
+      "lng": 72.876583
+    }
+  },
+  {
+    "name": "Kurla Roadside Assist",
+    "phone": "+91-8940510349",
+    "address": "Kurla West, Mumbai",
+    "city": "Kurla",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.6,
+    "coordinates": {
+      "lat": 19.0686026,
+      "lng": 72.876583
+    }
+  },
+  {
+    "name": "Kurla Roadside Assist",
+    "phone": "+91-8319792500",
+    "address": "LBS Road, Kurla",
+    "city": "Kurla",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "lat": 19.0844801,
+      "lng": 72.8846531
+    }
+  },
+  {
+    "name": "Kurla Quick Tow",
+    "phone": "+91-8822264231",
+    "address": "LBS Road, Kurla",
+    "city": "Kurla",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.4,
+    "coordinates": {
+      "lat": 19.0844801,
+      "lng": 72.8846531
+    }
+  },
+  {
+    "name": "Kurla Motors Workshop",
+    "phone": "+91-9033195098",
+    "address": "LBS Road, Kurla",
+    "city": "Kurla",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "lat": 19.0844801,
+      "lng": 72.8846531
+    }
+  },
+  {
+    "name": "Kurla Auto Care",
+    "phone": "+91-9783575139",
+    "address": "Kurla West, Mumbai",
+    "city": "Kurla",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "lat": 19.0686026,
+      "lng": 72.876583
+    }
+  },
+  {
+    "name": "Kurla Car Repair Center",
+    "phone": "+91-8286236588",
+    "address": "Kurla Station Road, Kurla",
+    "city": "Kurla",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 3.8,
+    "coordinates": {
+      "lat": 19.0728,
+      "lng": 72.8826
+    }
+  },
+  {
+    "name": "Kurla Garage & Service",
+    "phone": "+91-9189466659",
+    "address": "LBS Road, Kurla",
+    "city": "Kurla",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "lat": 19.0844801,
+      "lng": 72.8846531
+    }
+  },
+  {
+    "name": "Kurla Car Repair Center",
+    "phone": "+91-8473822484",
+    "address": "LBS Road, Kurla",
+    "city": "Kurla",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 3.7,
+    "coordinates": {
+      "lat": 19.0844801,
+      "lng": 72.8846531
+    }
+  },
+  {
+    "name": "Andheri Roadside Assist",
+    "phone": "+91-8466004417",
+    "address": "Link Road, Andheri",
+    "city": "Andheri",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.7,
+    "coordinates": {
+      "lat": 19.1219328,
+      "lng": 72.8257301
+    }
+  },
+  {
+    "name": "Andheri Quick Tow",
+    "phone": "+91-9552884817",
+    "address": "Andheri East, Mumbai",
+    "city": "Andheri",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.3,
+    "coordinates": {
+      "lat": 19.1158835,
+      "lng": 72.854202
+    }
+  },
+  {
+    "name": "Andheri Roadside Assist",
+    "phone": "+91-9410817706",
+    "address": "SV Road, Andheri West",
+    "city": "Andheri",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.3,
+    "coordinates": {
+      "lat": 19.1259663,
+      "lng": 72.8469256
+    }
+  },
+  {
+    "name": "Mumbai Highway Helpers Andheri",
+    "phone": "+91-9849252578",
+    "address": "SV Road, Andheri West",
+    "city": "Andheri",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "lat": 19.1259663,
+      "lng": 72.8469256
+    }
+  },
+  {
+    "name": "Andheri Automotive Solutions",
+    "phone": "+91-8943206772",
+    "address": "Link Road, Andheri",
+    "city": "Andheri",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.6,
+    "coordinates": {
+      "lat": 19.1219328,
+      "lng": 72.8257301
+    }
+  },
+  {
+    "name": "Andheri Motors Workshop",
+    "phone": "+91-8828683685",
+    "address": "Andheri East, Mumbai",
+    "city": "Andheri",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.3,
+    "coordinates": {
+      "lat": 19.1158835,
+      "lng": 72.854202
+    }
+  },
+  {
+    "name": "Andheri Garage & Service",
+    "phone": "+91-9093876776",
+    "address": "Link Road, Andheri",
+    "city": "Andheri",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.3,
+    "coordinates": {
+      "lat": 19.1219328,
+      "lng": 72.8257301
+    }
+  },
+  {
+    "name": "Bandra Quick Tow",
+    "phone": "+91-9785869003",
+    "address": "Linking Road, Bandra",
+    "city": "Bandra",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "lat": 19.078068,
+      "lng": 72.8343943
+    }
+  },
+  {
+    "name": "Bandra Emergency Towing",
+    "phone": "+91-9036017843",
+    "address": "Hill Road, Bandra",
+    "city": "Bandra",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 4.1,
+    "coordinates": {
+      "lat": 19.0547647,
+      "lng": 72.8260976
+    }
+  },
+  {
+    "name": "Bandra Highway Rescue",
+    "phone": "+91-8841471384",
+    "address": "Bandra West, Mumbai",
+    "city": "Bandra",
+    "services": [
+      "Towing Services"
+    ],
+    "rating": 3.9,
+    "coordinates": {
+      "lat": 19.0583358,
+      "lng": 72.8302669
+    }
+  },
+  {
+    "name": "Bandra Garage & Service",
+    "phone": "+91-8910877351",
+    "address": "Hill Road, Bandra",
+    "city": "Bandra",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "lat": 19.0547647,
+      "lng": 72.8260976
+    }
+  },
+  {
+    "name": "Bandra Automotive Solutions",
+    "phone": "+91-9391158107",
+    "address": "Hill Road, Bandra",
+    "city": "Bandra",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.4,
+    "coordinates": {
+      "lat": 19.0547647,
+      "lng": 72.8260976
+    }
+  },
+  {
+    "name": "Bandra Garage & Service",
+    "phone": "+91-9701523079",
+    "address": "Bandra West, Mumbai",
+    "city": "Bandra",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 3.9,
+    "coordinates": {
+      "lat": 19.0583358,
+      "lng": 72.8302669
+    }
+  },
+  {
+    "name": "Bandra Motors Workshop",
+    "phone": "+91-8516052095",
+    "address": "Linking Road, Bandra",
+    "city": "Bandra",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "lat": 19.078068,
+      "lng": 72.8343943
+    }
+  },
+  {
+    "name": "Bandra Automotive Solutions",
+    "phone": "+91-8644810235",
+    "address": "Bandra West, Mumbai",
+    "city": "Bandra",
+    "services": [
+      "Car Repair Garages"
+    ],
+    "rating": 3.9,
+    "coordinates": {
+      "lat": 19.0583358,
+      "lng": 72.8302669
+    }
+  }
+]

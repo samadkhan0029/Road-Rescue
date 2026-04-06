@@ -35,7 +35,19 @@ const carIcon = L.divIcon({
   iconAnchor: [13, 13],
 });
 
-const socket = io(socketUrl);
+// Initialize socket with better error handling
+let socket;
+try {
+  socket = io(socketUrl, {
+    timeout: 10000,
+    forceNew: true,
+    reconnectionAttempts: 3,
+    reconnectionDelay: 1000,
+  });
+} catch (error) {
+  console.error('Socket initialization error:', error);
+  socket = null;
+}
 
 const RecenterMap = ({ lat, lng }) => {
   const map = useMap();
@@ -166,6 +178,11 @@ const Emergency = () => {
   };
 
   useEffect(() => {
+    if (!socket) {
+      console.warn('Socket not initialized, skipping event listeners');
+      return;
+    }
+
     const onUpdate = (data) => {
       if (data.status === 'SEARCHING') {
         setStatus('searching');
@@ -246,11 +263,13 @@ const Emergency = () => {
     });
     
     return () => {
-      socket.off('request-update', onUpdate);
-      socket.off('provider_cancelled_job', onProviderCancelled);
-      socket.off('provider-location-update');
+      if (socket) {
+        socket.off('request-update', onUpdate);
+        socket.off('provider_cancelled_job', onProviderCancelled);
+        socket.off('provider-location-update');
+      }
     };
-  }, []);
+  }, [socket]);
 
   // Recalculate live distance every time driver coords update
   useEffect(() => {
@@ -335,6 +354,7 @@ const Emergency = () => {
         address: locationName,
       };
 
+      console.log('Sending request:', requestData);
       const response = await fetch(apiUrl('/api/requests'), {
         method: 'POST',
         headers: {
@@ -344,22 +364,27 @@ const Emergency = () => {
         body: JSON.stringify(requestData),
       });
 
+      console.log('Response status:', response.status);
       const data = await response.json();
+      console.log('Response data:', data);
 
       if (data.success) {
         setCurrentRequest(data.request);
-        socket.emit('join-request', data.request._id);
+        if (socket) {
+          socket.emit('join-request', data.request._id);
+        }
         if (data.request.status === 'ignored') {
           setError('No providers available in your area right now.');
           setStatus('input');
           setCurrentRequest(null);
         }
       } else {
-        setError(data.error);
+        setError(data.error || 'Failed to submit request');
         setStatus('input');
       }
-    } catch {
-      setError('Failed to submit request. Please try again.');
+    } catch (error) {
+      console.error('Request submission error:', error);
+      setError('Failed to submit request. Please check your internet connection and try again.');
       setStatus('input');
     }
   };
